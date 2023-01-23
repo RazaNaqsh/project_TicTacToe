@@ -1,0 +1,6 @@
+node_modules/
+/.eslintignore
+/.eslintrc.json
+/.prettierignore
+/package-lock.json
+/package.json
