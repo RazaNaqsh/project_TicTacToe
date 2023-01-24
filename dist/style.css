@@ -1,1 +1,27 @@
-/*# sourceMappingURL=style.css.map */
+*,
+*::after,
+*::before {
+  padding: 0;
+  margin: 0;
+  box-sizing: border-box;
+}
+
+body {
+  background-color: aqua;
+}
+
+.container {
+  display: grid;
+  margin-top: 10rem;
+  margin-inline: auto;
+  height: 40vh;
+  width: 30vw;
+  grid-template-rows: repeat(3, 1fr);
+  grid-template-columns: repeat(3, 1fr);
+}
+.container .grid-item {
+  border: 1px solid;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}/*# sourceMappingURL=style.css.map */

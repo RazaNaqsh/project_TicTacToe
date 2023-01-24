@@ -1,0 +1,15 @@
+.container {
+	display: grid;
+	margin-top: 10rem;
+	margin-inline: auto;
+	height: 40vh;
+	width: 30vw;
+	grid-template-rows: repeat(3, 1fr);
+	grid-template-columns: repeat(3, 1fr);
+	.grid-item {
+		border: 1px solid;
+		display: flex;
+		justify-content: center;
+		align-items: center;
+	}
+}
