@@ -32,28 +32,42 @@ const gameBoard = (() => {
 	});
 
 	const childDivs = document.querySelectorAll(".grid-item");
+
 	childDivs.forEach((div) => {
-		div.addEventListener("click", (e) => {
-			if (e.target.innerHTML === "") {
-				e.target.innerHTML = gameFlow.activePLayer.symbol;
-				const elToAdd = e.target.getAttribute("data-index");
-				board.splice(elToAdd, 1, gameFlow.activePLayer.symbol);
-				console.log(board);
-				//check win
-				if (
-					(board[0] === board[1] && board[0] === board[2] && board[0] !== "") ||
-					(board[0] === board[3] && board[0] === board[6] && board[0] !== "") ||
-					(board[0] === board[4] && board[0] === board[8] && board[0] !== "") ||
-					(board[1] === board[4] && board[1] === board[7] && board[1] !== "") ||
-					(board[2] === board[5] && board[2] === board[8] && board[2] !== "") ||
-					(board[2] === board[4] && board[2] === board[6] && board[2] !== "") ||
-					(board[3] === board[4] && board[3] === board[5] && board[3] !== "") ||
-					(board[6] === board[7] && board[6] === board[8] && board[6] !== "")
-				) {
-					console.log(`${gameFlow.activePLayer.symbol} wins`);
-				}
-				gameFlow.changePlayer();
-			}
-		});
+		div.addEventListener("click", play);
 	});
+
+	function play(e) {
+		if (e.target.innerHTML === "") {
+			e.target.innerHTML = gameFlow.activePLayer.symbol;
+
+			updateBoard(e);
+			checkWin();
+			gameFlow.changePlayer();
+		}
+	}
+
+	const updateBoard = (e) => {
+		const elToAdd = e.target.getAttribute("data-index");
+		board.splice(elToAdd, 1, gameFlow.activePLayer.symbol);
+		console.log(board);
+	};
+
+	const checkWin = () => {
+		if (
+			(board[0] === board[1] && board[0] === board[2] && board[0] !== "") ||
+			(board[0] === board[3] && board[0] === board[6] && board[0] !== "") ||
+			(board[0] === board[4] && board[0] === board[8] && board[0] !== "") ||
+			(board[1] === board[4] && board[1] === board[7] && board[1] !== "") ||
+			(board[2] === board[5] && board[2] === board[8] && board[2] !== "") ||
+			(board[2] === board[4] && board[2] === board[6] && board[2] !== "") ||
+			(board[3] === board[4] && board[3] === board[5] && board[3] !== "") ||
+			(board[6] === board[7] && board[6] === board[8] && board[6] !== "")
+		) {
+			console.log(`${gameFlow.activePLayer.symbol} wins`);
+			childDivs.forEach((div) => {
+				div.removeEventListener("click", play);
+			});
+		}
+	};
 })();
