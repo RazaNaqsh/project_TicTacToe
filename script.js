@@ -1,13 +1,22 @@
 const player1 = {
-	name: "Light",
+	name: "X",
 	symbol: "X",
 };
 const player2 = {
-	name: "L",
+	name: "O",
 	symbol: "O",
 };
+
+const gameFlow = (() => {
+	const activePLayer = player1;
+	return {
+		activePLayer,
+	};
+})();
+
 const gameBoard = (() => {
 	const board = ["", "", "O", "O", "O", "", "", "", ""];
+
 	const container = document.querySelector(".container");
 	board.forEach((item, index) => {
 		const div = document.createElement("div");
@@ -16,26 +25,18 @@ const gameBoard = (() => {
 		div.innerHTML = item;
 		container.append(div);
 	});
-	return {
-		container,
-		board,
-	};
-})();
 
-const gameFlow = (() => {
-	let activePLayer = player1;
-	gameBoard.container.childNodes.forEach((childDiv) => {
-		childDiv.addEventListener("click", (e) => {
-			if (e.target.innerHTML === "") e.target.innerHTML = activePLayer.symbol;
-
-			let elToAdd = e.target.getAttribute("data-index");
-			console.log(elToAdd);
-
-			gameBoard.board.splice(elToAdd, 1, activePLayer.symbol);
-			console.log(gameBoard.board);
-
-			if (activePLayer === player1) activePLayer = player2;
-			else activePLayer = player1;
+	const childDivs = document.querySelectorAll(".grid-item");
+	childDivs.forEach((div) => {
+		div.addEventListener("click", (e) => {
+			if (e.target.innerHTML === "") {
+				e.target.innerHTML = gameFlow.activePLayer.symbol;
+				const elToAdd = e.target.getAttribute("data-index");
+				board.splice(elToAdd, 1, gameFlow.activePLayer.symbol);
+				if (gameFlow.activePLayer === player1) gameFlow.activePLayer = player2;
+				else gameFlow.activePLayer = player1;
+				console.log(board);
+			}
 		});
 	});
 })();
