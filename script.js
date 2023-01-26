@@ -9,6 +9,7 @@ const player2 = {
 
 const gameBoard = (() => {
 	const boardArray = ["", "", "", "", "", "", "", "", ""];
+
 	return {
 		boardArray,
 	};
@@ -16,15 +17,18 @@ const gameBoard = (() => {
 
 const gameFlow = (() => {
 	let activePLayer = player1;
+
 	const updateBoard = (e) => {
 		const elToAdd = e.target.getAttribute("data-index");
 		gameBoard.boardArray.splice(elToAdd, 1, activePLayer.symbol);
 	};
+
 	const switchPlayer = () => {
 		console.log(activePLayer);
 		if (activePLayer === player1) activePLayer = player2;
 		else activePLayer = player1;
 	};
+
 	const play = (e) => {
 		if (e.target.innerHTML === "") {
 			e.target.innerHTML = activePLayer.symbol;
@@ -34,6 +38,7 @@ const gameFlow = (() => {
 			switchPlayer();
 		}
 	};
+
 	function checkWin() {
 		if (
 			(gameBoard.boardArray[0] === gameBoard.boardArray[1] &&
@@ -62,6 +67,7 @@ const gameFlow = (() => {
 				gameBoard.boardArray[6] !== "")
 		) {
 			console.log(`${activePLayer.symbol} wins`);
+
 			displayController.grid.forEach((gridItem) => {
 				gridItem.removeEventListener("click", play);
 			});
@@ -76,10 +82,12 @@ const gameFlow = (() => {
 
 const displayController = (function () {
 	const grid = document.querySelectorAll(".grid-item");
+
 	grid.forEach((gridItem, index) => {
 		gridItem.innerHTML = gameBoard.boardArray[index];
 		gridItem.addEventListener("click", gameFlow.play);
 	});
+
 	return {
 		grid,
 	};
