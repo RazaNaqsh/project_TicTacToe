@@ -18,7 +18,7 @@ const gameFlow = (() => {
 	let activePLayer = player1;
 	const updateBoard = (e) => {
 		const elToAdd = e.target.getAttribute("data-index");
-		gameBoard.boardArray.splice(elToAdd, 1, gameFlow.activePLayer.symbol);
+		gameBoard.boardArray.splice(elToAdd, 1, activePLayer.symbol);
 	};
 	const switchPlayer = () => {
 		// if (gameFlow.activePLayer === player1) gameFlow.activePLayer = player2;
