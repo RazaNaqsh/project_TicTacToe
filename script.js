@@ -21,8 +21,6 @@ const gameFlow = (() => {
 		gameBoard.boardArray.splice(elToAdd, 1, activePLayer.symbol);
 	};
 	const switchPlayer = () => {
-		// if (gameFlow.activePLayer === player1) gameFlow.activePLayer = player2;
-		// else gameFlow.activePLayer = player1;
 		console.log(activePLayer);
 		if (activePLayer === player1) activePLayer = player2;
 		else activePLayer = player1;

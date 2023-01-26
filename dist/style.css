@@ -7,7 +7,21 @@
 }
 
 body {
-  background-color: aqua;
+  background-color: #1e293b;
+  color: var(--color-primary);
+}
+
+:root {
+  --gradient: linear-gradient(
+  		45deg,
+  		aqua,
+  		rgb(122, 235, 122),
+  		rgb(221, 45, 45),
+  		rgb(241, 241, 95),
+  		rgb(80, 164, 248)
+  	)
+  	1;
+  --color-primary: #ab79d6;
 }
 
 .container {
@@ -21,7 +35,10 @@ body {
 }
 .container .grid-item {
   border: 1px solid;
+  -o-border-image: var(--gradient);
+     border-image: var(--gradient);
   display: flex;
   justify-content: center;
   align-items: center;
+  font-size: 1.5rem;
 }/*# sourceMappingURL=style.css.map */

@@ -1,3 +1,4 @@
+@use "../utilities" as *;
 .container {
 	display: grid;
 	margin-top: 10rem;
@@ -8,8 +9,10 @@
 	grid-template-columns: repeat(3, 1fr);
 	.grid-item {
 		border: 1px solid;
+		border-image: var(--gradient);
 		display: flex;
 		justify-content: center;
 		align-items: center;
+		font-size: 1.5rem;
 	}
 }
