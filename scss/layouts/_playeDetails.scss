@@ -1,0 +1,44 @@
+@use "../utilities" as *;
+
+.playerDetails {
+	border: 1px solid var(--color-secondary);
+	display: block;
+	text-align: center;
+	margin: 10rem auto;
+	width: 35vw;
+	height: 30vh;
+	display: flex;
+	flex-direction: column;
+	justify-content: center;
+	gap: 3rem;
+	span {
+		margin: 1rem;
+	}
+	input {
+		padding: 0.8rem;
+		border-radius: 1rem;
+		border: none;
+		transition: all 150ms ease-in-out;
+		&:focus {
+			outline: solid 3px rgba(115, 192, 255, 0.8);
+		}
+		&:hover {
+			transform: scale(0.95);
+		}
+	}
+	button {
+		display: block;
+		margin-inline: auto;
+		margin-top: 2rem;
+		padding: 0.8rem 1rem;
+		border-radius: 1rem;
+		background: none;
+		letter-spacing: 1px;
+		border-image: var(--gradient);
+		color: var(--color-primary);
+		transition: all 150ms ease-in-out;
+		&:hover {
+			transform: scale(0.9);
+		}
+	}
+}

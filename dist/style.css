@@ -9,6 +9,8 @@
 body {
   background-color: #1e293b;
   color: var(--color-primary);
+  font-family: system-ui, -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, Oxygen, Ubuntu, Cantarell, "Open Sans", "Helvetica Neue", sans-serif;
+  position: relative;
 }
 
 :root {
@@ -22,10 +24,11 @@ body {
   	)
   	1;
   --color-primary: #ab79d6;
+  --color-secondary: #fde047;
 }
 
 .container {
-  display: grid;
+  display: none;
   margin-top: 10rem;
   margin-inline: auto;
   height: 40vh;
@@ -42,4 +45,55 @@ body {
   align-items: center;
   font-size: 1.5rem;
   font-weight: 900;
+}
+
+header {
+  color: var(--color-secondary);
+  text-align: center;
+  font-size: 2rem;
+  letter-spacing: 2px;
+}
+
+.playerDetails {
+  border: 1px solid var(--color-secondary);
+  display: block;
+  text-align: center;
+  margin: 10rem auto;
+  width: 35vw;
+  height: 30vh;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  gap: 3rem;
+}
+.playerDetails span {
+  margin: 1rem;
+}
+.playerDetails input {
+  padding: 0.8rem;
+  border-radius: 1rem;
+  border: none;
+  transition: all 150ms ease-in-out;
+}
+.playerDetails input:focus {
+  outline: solid 3px rgba(115, 192, 255, 0.8);
+}
+.playerDetails input:hover {
+  transform: scale(0.95);
+}
+.playerDetails button {
+  display: block;
+  margin-inline: auto;
+  margin-top: 2rem;
+  padding: 0.8rem 1rem;
+  border-radius: 1rem;
+  background: none;
+  letter-spacing: 1px;
+  -o-border-image: var(--gradient);
+     border-image: var(--gradient);
+  color: var(--color-primary);
+  transition: all 150ms ease-in-out;
+}
+.playerDetails button:hover {
+  transform: scale(0.9);
 }/*# sourceMappingURL=style.css.map */
