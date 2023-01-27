@@ -2,12 +2,21 @@
 
 .main {
 	position: relative;
+	.playerDisplay {
+		display: none;
+		width: 30%;
+		justify-content: space-around;
+		margin-top: 7rem;
+		margin-inline: auto;
+		padding: 0.8rem;
+		border: 1px solid var(--color-secondary);
+	}
 	.winningMessage {
 		display: none;
 		flex-direction: column;
 		position: absolute;
 		transform: translateX(115%);
-		top: 15rem;
+		top: 10rem;
 		justify-content: center;
 		align-items: center;
 		border: 2px solid var(--color-secondary);
@@ -31,13 +40,13 @@
 	}
 	.container {
 		display: none;
-		margin-top: 10rem;
+		margin-top: 2rem;
 		margin-inline: auto;
 		height: 40vh;
 		width: 25vw;
 		grid-template-rows: repeat(3, 1fr);
 		grid-template-columns: repeat(3, 1fr);
-		// filter: blur(10px); // will add using js when winner pops
+
 		.grid-item {
 			border: 1px solid;
 			border-image: var(--gradient);

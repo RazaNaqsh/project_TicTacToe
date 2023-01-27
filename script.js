@@ -20,6 +20,13 @@ const playerDetails = (function () {
 			document.querySelector(".playerDetails").style.display = "none";
 			playerDetails.player1 = player(playerOneName, "X");
 			playerDetails.player2 = player(playerTwoName, "O");
+			document.querySelector(".playerDisplay").style.display = "flex";
+			document.querySelector(
+				".playerOne"
+			).textContent = `${playerOneName}(${playerDetails.player1.symbol})`;
+			document.querySelector(
+				".playerTwo"
+			).textContent = `${playerTwoName}(${playerDetails.player2.symbol})`;
 		}
 		gameFlow.players = playerDetails;
 		gameFlow.activePLayer = gameFlow.players.player1;
@@ -97,6 +104,7 @@ const gameFlow = (function () {
 			displayController.grid.forEach((gridItem) => {
 				gridItem.removeEventListener("click", play);
 			});
+			document.querySelector(".playerDisplay").style.filter = "blur(10px)";
 			document.querySelector(".container").style.filter = "blur(10px)";
 			document.querySelector(".winningMessage").style.display = "flex";
 			document.querySelector(
@@ -134,6 +142,7 @@ const buttons = (() => {
 function restart() {
 	document.querySelector(".winningMessage").style.display = "none";
 	document.querySelector(".container").style.filter = "none";
+	document.querySelector(".playerDisplay").style.filter = "none";
 	gameBoard.boardArray = ["", "", "", "", "", "", "", "", ""];
 	displayController.grid.forEach((gridItem, index) => {
 		gridItem.innerHTML = gameBoard.boardArray[index];
