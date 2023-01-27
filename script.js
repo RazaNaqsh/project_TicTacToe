@@ -101,6 +101,10 @@ const playerDetails = (() => {
 		e.preventDefault();
 		playerOne = document.getElementById("player1").value;
 		playerTwo = document.getElementById("player2").value;
+		if (playerTwo !== "" && playerOne !== "") {
+			document.querySelector(".container").style.display = "grid";
+			document.querySelector(".playerDetails").style.display = "none";
+		}
 	});
 	return {
 		playerOne,

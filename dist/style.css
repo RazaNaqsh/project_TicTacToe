@@ -55,15 +55,14 @@ header {
 }
 
 .playerDetails {
-  border: 1px solid var(--color-secondary);
-  display: block;
-  text-align: center;
+  display: flex;
   margin: 10rem auto;
   width: 35vw;
   height: 30vh;
-  display: flex;
   flex-direction: column;
+  border: 1px solid var(--color-secondary);
   justify-content: center;
+  text-align: center;
   gap: 3rem;
 }
 .playerDetails span {
