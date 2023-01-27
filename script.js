@@ -92,11 +92,16 @@ const gameFlow = (function () {
 				gameBoard.boardArray[6] === gameBoard.boardArray[8] &&
 				gameBoard.boardArray[6] !== "")
 		) {
-			console.log(`${gameFlow.activePLayer.symbol} wins`);
+			console.log(`${gameFlow.activePLayer.playerName} wins`);
 
 			displayController.grid.forEach((gridItem) => {
 				gridItem.removeEventListener("click", play);
 			});
+			document.querySelector(".container").style.filter = "blur(10px)";
+			document.querySelector(".winningMessage").style.display = "flex";
+			document.querySelector(
+				".win"
+			).textContent = `${gameFlow.activePLayer.playerName} wins!!`;
 		}
 	}
 

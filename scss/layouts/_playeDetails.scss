@@ -18,12 +18,8 @@
 		border-radius: 1rem;
 		border: none;
 		width: 30%;
-		transition: all 150ms ease-in-out;
 		&:focus {
 			outline: solid 3px rgba(115, 192, 255, 0.8);
-		}
-		&:hover {
-			transform: scale(0.95);
 		}
 	}
 	button {
@@ -36,9 +32,5 @@
 		letter-spacing: 1px;
 		border-image: var(--gradient);
 		color: var(--color-primary);
-		transition: all 150ms ease-in-out;
-		&:hover {
-			transform: scale(0.9);
-		}
 	}
 }

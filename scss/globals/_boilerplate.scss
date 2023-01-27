@@ -12,3 +12,9 @@ body {
 		Oxygen, Ubuntu, Cantarell, "Open Sans", "Helvetica Neue", sans-serif;
 	position: relative;
 }
+.hover {
+	transition: all 150ms ease-in-out;
+}
+.hover:hover {
+	transform: scale(0.95);
+}

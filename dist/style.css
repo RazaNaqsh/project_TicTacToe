@@ -13,6 +13,14 @@ body {
   position: relative;
 }
 
+.hover {
+  transition: all 150ms ease-in-out;
+}
+
+.hover:hover {
+  transform: scale(0.95);
+}
+
 :root {
   --gradient: linear-gradient(
   		45deg,
@@ -73,13 +81,9 @@ header {
   border-radius: 1rem;
   border: none;
   width: 30%;
-  transition: all 150ms ease-in-out;
 }
 .playerDetails input:focus {
   outline: solid 3px rgba(115, 192, 255, 0.8);
-}
-.playerDetails input:hover {
-  transform: scale(0.95);
 }
 .playerDetails button {
   display: block;
@@ -92,8 +96,36 @@ header {
   -o-border-image: var(--gradient);
      border-image: var(--gradient);
   color: var(--color-primary);
-  transition: all 150ms ease-in-out;
 }
-.playerDetails button:hover {
-  transform: scale(0.9);
+
+.main {
+  position: relative;
+}
+.main .winningMessage {
+  display: none;
+  flex-direction: column;
+  position: absolute;
+  transform: translateX(115%);
+  top: 3rem;
+  justify-content: center;
+  align-items: center;
+  border: 2px solid var(--color-secondary);
+  margin-inline: auto;
+  height: 30vh;
+  width: 30vw;
+  z-index: 1;
+}
+.main .win {
+  display: block;
+}
+.main .btn {
+  margin: 1rem;
+  padding: 1rem 3rem;
+  background: none;
+  -o-border-image: var(--gradient);
+     border-image: var(--gradient);
+  letter-spacing: 1px;
+  font-size: 1rem;
+  font-weight: 700;
+  color: var(--color-primary);
 }/*# sourceMappingURL=style.css.map */

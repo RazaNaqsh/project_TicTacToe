@@ -1,0 +1,32 @@
+@use "../utilities" as *;
+
+.main {
+	position: relative;
+	.winningMessage {
+		display: none;
+		flex-direction: column;
+		position: absolute;
+		transform: translateX(115%);
+		top: 3rem;
+		justify-content: center;
+		align-items: center;
+		border: 2px solid var(--color-secondary);
+		margin-inline: auto;
+		height: 30vh;
+		width: 30vw;
+		z-index: 1;
+	}
+	.win {
+		display: block;
+	}
+	.btn {
+		margin: 1rem;
+		padding: 1rem 3rem;
+		background: none;
+		border-image: var(--gradient);
+		letter-spacing: 1px;
+		font-size: 1rem;
+		font-weight: 700;
+		color: var(--color-primary);
+	}
+}

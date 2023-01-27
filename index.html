@@ -19,16 +19,21 @@
         <form class="playerDetails__form">
             <span>
                 <label for="player1">Player1: </label>
-                <input type="text" name="" id="player1" required>
+                <input type="text" name="" id="player1" class="hover" required>
             </span>
             <span>
                 <label for="player2">Player2: </label>
-                <input type="text" name="" id="player2" required>
+                <input type="text" name="" id="player2" class="hover" required>
                 </div>
-                <button id="start">Play!</button>
+                <button id="start" class="hover">Play!</button>
         </form>
     </section>
     <section class="main">
+        <div class="winningMessage">
+            <h2 class="win"></h2>
+            <button id="playAgain" class="btn hover">Again</button>
+            <button id="home" class="btn hover">Home</button>
+        </div>
         <div class="container">
             <div class="grid-item" data-index="0" style="border-top: none; border-left: none;"></div>
             <div class="grid-item" data-index="1" style="border-top: none;"></div>
@@ -40,6 +45,7 @@
             <div class="grid-item" data-index="7" style="border-bottom: none;"></div>
             <div class="grid-item" data-index="8" style="border-bottom: none; border-right: none;"></div>
         </div>
+
     </section>
 </body>
 
