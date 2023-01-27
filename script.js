@@ -1,11 +1,46 @@
-const player1 = {
-	name: "X",
-	symbol: "X",
+// const player1 = {
+// 	name: "X",
+// 	symbol: "X",
+// };
+// const player2 = {
+// 	name: "O",
+// 	symbol: "O",
+// };
+const player = function (playerName, symbol) {
+	return {
+		playerName,
+		symbol,
+	};
 };
-const player2 = {
-	name: "O",
-	symbol: "O",
-};
+
+const playerDetails = (() => {
+	const btn = document.getElementById("start");
+	let playerOneName;
+	let playerTwoName;
+	let player1;
+	let player2;
+	let p1;
+	let p2;
+	btn.addEventListener("click", (e) => {
+		e.preventDefault();
+		playerOneName = document.getElementById("player1").value;
+		playerTwoName = document.getElementById("player2").value;
+		if (playerTwoName !== "" && playerOneName !== "") {
+			document.querySelector(".container").style.display = "grid";
+			document.querySelector(".playerDetails").style.display = "none";
+			console.log(playerOneName);
+			p1 = player(playerOneName, "X");
+			p2 = player(playerTwoName, "O");
+			console.log(p1);
+		}
+	});
+	return function () {
+		return {
+			player1: p1,
+			player2: p2,
+		};
+	};
+})();
 
 const gameBoard = (() => {
 	const boardArray = ["", "", "", "", "", "", "", "", ""];
@@ -16,8 +51,8 @@ const gameBoard = (() => {
 })();
 
 const gameFlow = (() => {
-	let activePLayer = player1;
-
+	let activePLayer = playerDetails().player1;
+	console.log(playerDetails().player1);
 	const updateBoard = (e) => {
 		const elToAdd = e.target.getAttribute("data-index");
 		gameBoard.boardArray.splice(elToAdd, 1, activePLayer.symbol);
@@ -25,12 +60,15 @@ const gameFlow = (() => {
 
 	const switchPlayer = () => {
 		console.log(activePLayer);
-		if (activePLayer === player1) activePLayer = player2;
-		else activePLayer = player1;
+		if (activePLayer === playerDetails().player1)
+			activePLayer = playerDetails().player2;
+		else activePLayer = playerDetails().player1;
+		return activePLayer;
 	};
 
 	const play = (e) => {
 		if (e.target.innerHTML === "") {
+			console.log(activePLayer);
 			e.target.innerHTML = activePLayer.symbol;
 			updateBoard(e);
 			console.log(gameBoard.boardArray);
@@ -90,24 +128,5 @@ const displayController = (function () {
 
 	return {
 		grid,
-	};
-})();
-
-const playerDetails = (() => {
-	const btn = document.getElementById("start");
-	let playerOne;
-	let playerTwo;
-	btn.addEventListener("click", (e) => {
-		e.preventDefault();
-		playerOne = document.getElementById("player1").value;
-		playerTwo = document.getElementById("player2").value;
-		if (playerTwo !== "" && playerOne !== "") {
-			document.querySelector(".container").style.display = "grid";
-			document.querySelector(".playerDetails").style.display = "none";
-		}
-	});
-	return {
-		playerOne,
-		playerTwo,
 	};
 })();
