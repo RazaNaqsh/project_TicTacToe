@@ -101,7 +101,7 @@ const gameFlow = (function () {
 			document.querySelector(".winningMessage").style.display = "flex";
 			document.querySelector(
 				".win"
-			).textContent = `${gameFlow.activePLayer.playerName} wins!!`;
+			).textContent = `${gameFlow.activePLayer.playerName} (${gameFlow.activePLayer.symbol}) wins!!`;
 		}
 	}
 
@@ -124,3 +124,20 @@ const displayController = (function () {
 		grid,
 	};
 })();
+
+const buttons = (() => {
+	const again = document.getElementById("playAgain");
+	const home = document.getElementById("home");
+	again.addEventListener("click", restart);
+	home.addEventListener("click", homeScreen);
+})();
+function restart() {
+	document.querySelector(".winningMessage").style.display = "none";
+	document.querySelector(".container").style.filter = "none";
+	gameBoard.boardArray = ["", "", "", "", "", "", "", "", ""];
+	displayController.grid.forEach((gridItem, index) => {
+		gridItem.innerHTML = gameBoard.boardArray[index];
+		gridItem.addEventListener("click", gameFlow.play);
+	});
+}
+function homeScreen() {}
