@@ -54,7 +54,7 @@ const gameFlow = (function () {
 	};
 
 	const switchPlayer = () => {
-		console.log(gameFlow.activePLayer);
+		// console.log(gameFlow.activePLayer);
 		if (gameFlow.activePLayer === gameFlow.players.player1)
 			gameFlow.activePLayer = gameFlow.players.player2;
 		else gameFlow.activePLayer = gameFlow.players.player1;
@@ -66,7 +66,7 @@ const gameFlow = (function () {
 			// console.log(gameFlow.activePLayer);
 			e.target.innerHTML = gameFlow.activePLayer.symbol;
 			updateBoard(e);
-			console.log(gameBoard.boardArray);
+			// console.log(gameBoard.boardArray);
 			checkWin();
 			switchPlayer();
 		}
@@ -99,7 +99,7 @@ const gameFlow = (function () {
 				gameBoard.boardArray[6] === gameBoard.boardArray[8] &&
 				gameBoard.boardArray[6] !== "")
 		) {
-			console.log(`${gameFlow.activePLayer.playerName} wins`);
+			// console.log(`${gameFlow.activePLayer.playerName} wins`);
 
 			displayController.grid.forEach((gridItem) => {
 				gridItem.removeEventListener("click", play);
@@ -139,7 +139,7 @@ const buttons = (() => {
 	again.addEventListener("click", restart);
 	home.addEventListener("click", homeScreen);
 })();
-function restart() {
+function resetScreen() {
 	document.querySelector(".winningMessage").style.display = "none";
 	document.querySelector(".container").style.filter = "none";
 	document.querySelector(".playerDisplay").style.filter = "none";
@@ -149,4 +149,12 @@ function restart() {
 		gridItem.addEventListener("click", gameFlow.play);
 	});
 }
-function homeScreen() {}
+function restart() {
+	resetScreen();
+}
+function homeScreen() {
+	resetScreen();
+	document.querySelector(".container").style.display = "none";
+	document.querySelector(".playerDisplay").style.display = "none";
+	document.querySelector(".playerDetails").style.display = "flex";
+}
