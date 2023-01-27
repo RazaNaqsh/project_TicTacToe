@@ -73,6 +73,7 @@ header {
   padding: 0.8rem;
   border-radius: 1rem;
   border: none;
+  width: 30%;
   transition: all 150ms ease-in-out;
 }
 .playerDetails input:focus {

@@ -92,3 +92,18 @@ const displayController = (function () {
 		grid,
 	};
 })();
+
+const playerDetails = (() => {
+	const btn = document.getElementById("start");
+	let playerOne;
+	let playerTwo;
+	btn.addEventListener("click", (e) => {
+		e.preventDefault();
+		playerOne = document.getElementById("player1").value;
+		playerTwo = document.getElementById("player2").value;
+	});
+	return {
+		playerOne,
+		playerTwo,
+	};
+})();
