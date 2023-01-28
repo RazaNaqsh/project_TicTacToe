@@ -30,6 +30,7 @@ const playerDetails = (function () {
 		}
 		gameFlow.players = playerDetails;
 		gameFlow.activePLayer = gameFlow.players.player1;
+		document.querySelector(".playerOne").style.color = "var(--color-secondary)";
 	});
 	return {
 		player1,
@@ -48,6 +49,7 @@ const gameBoard = (() => {
 const gameFlow = (function () {
 	let players;
 	let activePLayer;
+	const switchContent = "'s Turn";
 	const updateBoard = (e) => {
 		const elToAdd = e.target.getAttribute("data-index");
 		gameBoard.boardArray.splice(elToAdd, 1, gameFlow.activePLayer.symbol);
@@ -55,9 +57,18 @@ const gameFlow = (function () {
 
 	const switchPlayer = () => {
 		// console.log(gameFlow.activePLayer);
-		if (gameFlow.activePLayer === gameFlow.players.player1)
+		if (gameFlow.activePLayer === gameFlow.players.player1) {
 			gameFlow.activePLayer = gameFlow.players.player2;
-		else gameFlow.activePLayer = gameFlow.players.player1;
+			document.querySelector(".playerTwo").style.color =
+				"var(--color-secondary)";
+
+			document.querySelector(".playerOne").style.color = "var(--color-primary)";
+		} else {
+			gameFlow.activePLayer = gameFlow.players.player1;
+			document.querySelector(".playerOne").style.color =
+				"var(--color-secondary)";
+			document.querySelector(".playerTwo").style.color = "var(--color-primary)";
+		}
 	};
 
 	const play = (e) => {
@@ -139,6 +150,7 @@ const buttons = (() => {
 	again.addEventListener("click", restart);
 	home.addEventListener("click", homeScreen);
 })();
+
 function resetScreen() {
 	document.querySelector(".winningMessage").style.display = "none";
 	document.querySelector(".container").style.filter = "none";
@@ -157,4 +169,5 @@ function homeScreen() {
 	document.querySelector(".container").style.display = "none";
 	document.querySelector(".playerDisplay").style.display = "none";
 	document.querySelector(".playerDetails").style.display = "flex";
+	document.querySelector(".playerTwo").style.color = "var(--color-primary)";
 }
