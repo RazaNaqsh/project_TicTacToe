@@ -10,13 +10,27 @@
 		margin-inline: auto;
 		padding: 0.8rem;
 		border: 1px solid var(--color-secondary);
+		animation: slide-up 400ms ease-in-out 1 normal;
+		@keyframes slide-up {
+			0% {
+				transform: translateY(500px);
+				opacity: 0;
+			}
+			40% {
+				opacity: 0;
+			}
+			100% {
+				transform: translateY(0);
+				opacity: 1;
+			}
+		}
 	}
 	.winningMessage {
 		display: none;
 		flex-direction: column;
 		position: absolute;
-		transform: translateX(115%);
 		top: 10rem;
+		left: 35%;
 		justify-content: center;
 		align-items: center;
 		border: 2px solid var(--color-secondary);
@@ -24,6 +38,15 @@
 		height: 30vh;
 		width: 30vw;
 		z-index: 1;
+		animation: pop-uo 400ms ease-in-out 1 normal;
+		@keyframes pop-uo {
+			0% {
+				transform: scale(0);
+			}
+			100% {
+				transform: scale(1);
+			}
+		}
 	}
 	.win {
 		display: block;
@@ -46,6 +69,7 @@
 		width: 25vw;
 		grid-template-rows: repeat(3, 1fr);
 		grid-template-columns: repeat(3, 1fr);
+		animation: slide-up 400ms ease-in-out 1 normal;
 
 		.grid-item {
 			border: 1px solid;
@@ -55,6 +79,7 @@
 			align-items: center;
 			font-size: 1.5rem;
 			font-weight: 900;
+			transition: all 150ms ease-in-out;
 		}
 	}
 }
