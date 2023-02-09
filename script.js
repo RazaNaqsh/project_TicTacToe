@@ -83,6 +83,12 @@ const gameFlow = (function () {
 		}
 	};
 
+	function endScreen() {
+		document.querySelector(".playerDisplay").style.filter = "blur(10px)";
+		document.querySelector(".container").style.filter = "blur(10px)";
+		document.querySelector(".winningMessage").style.display = "flex";
+	}
+
 	function checkWin() {
 		if (
 			(gameBoard.boardArray[0] === gameBoard.boardArray[1] &&
@@ -115,12 +121,14 @@ const gameFlow = (function () {
 			displayController.grid.forEach((gridItem) => {
 				gridItem.removeEventListener("click", play);
 			});
-			document.querySelector(".playerDisplay").style.filter = "blur(10px)";
-			document.querySelector(".container").style.filter = "blur(10px)";
-			document.querySelector(".winningMessage").style.display = "flex";
+			endScreen();
 			document.querySelector(
 				".win"
 			).textContent = `${gameFlow.activePLayer.playerName} (${gameFlow.activePLayer.symbol}) wins!!`;
+		}
+		if (gameBoard.boardArray.every((box) => box !== "")) {
+			endScreen();
+			document.querySelector(".win").textContent = `Game Draw!`;
 		}
 	}
 
@@ -170,4 +178,6 @@ function homeScreen() {
 	document.querySelector(".playerDisplay").style.display = "none";
 	document.querySelector(".playerDetails").style.display = "flex";
 	document.querySelector(".playerTwo").style.color = "var(--color-primary)";
+	document.getElementById("player1").value = "";
+	document.getElementById("player2").value = "";
 }

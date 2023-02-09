@@ -118,7 +118,13 @@ body {
   align-items: center;
   font-size: 1.5rem;
   font-weight: 900;
-  transition: all 150ms ease-in-out;
+  transition: all 100ms ease-in-out;
+}
+.main .container .grid-item:hover {
+  background-color: hsl(235deg, 21%, 11%);
+}
+.main .container .grid-item:active {
+  background-color: hsl(233deg, 14%, 35%);
 }
 
 header {
